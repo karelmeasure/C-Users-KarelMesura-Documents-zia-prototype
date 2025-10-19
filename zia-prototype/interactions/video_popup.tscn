@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3vr0er03fcj"]
+
+[ext_resource type="Script" uid="uid://djgusr743rlaa" path="res://video_popup.gd" id="1_c3cdb"]
+[ext_resource type="VideoStream" uid="uid://c67vscg2jsx52" path="res://Asset/video/halte.ogv" id="2_c3cdb"]
+
+[node name="VideoPopup" type="CanvasLayer"]
+layer = 30
+script = ExtResource("1_c3cdb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+texture_filter = 1
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.38
+offset_top = -89.0
+offset_right = 1761.62
+offset_bottom = 991.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.165, 0.165)
+stream = ExtResource("2_c3cdb")

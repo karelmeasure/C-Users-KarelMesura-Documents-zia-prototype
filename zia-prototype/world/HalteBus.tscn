@@ -1,0 +1,362 @@
+[gd_scene load_steps=45 format=3 uid="uid://dicmkukbspgqn"]
+
+[ext_resource type="PackedScene" uid="uid://b2hp5v015acgg" path="res://Player/zia.tscn" id="1_f8vv1"]
+[ext_resource type="Script" uid="uid://5x774ek7jwvn" path="res://world/halte_bus.gd" id="1_s66ys"]
+[ext_resource type="Script" uid="uid://bevqmq577j4ca" path="res://camera_2d.gd" id="2_6nwib"]
+[ext_resource type="Texture2D" uid="uid://bim40mpf30ung" path="res://Asset/BG/Halte bus/roadbawah.png" id="3_s66ys"]
+[ext_resource type="Texture2D" uid="uid://le4d03wj2qjn" path="res://Asset/BG/Halte bus/roadatas.png" id="4_6ijfv"]
+[ext_resource type="Texture2D" uid="uid://1uynxd43rb1a" path="res://Asset/BG/Halte bus/halte.png" id="5_mfvgp"]
+[ext_resource type="Texture2D" uid="uid://l60lfnms2qeg" path="res://Asset/BG/Halte bus/bg.png" id="6_ep4vs"]
+[ext_resource type="Texture2D" uid="uid://cu5wsyc1qlq04" path="res://Asset/BG/Halte bus/lampu.png" id="6_s66ys"]
+[ext_resource type="Texture2D" uid="uid://crd8etkhw1713" path="res://Asset/BG/Halte bus/awan.png" id="7_tg0tj"]
+[ext_resource type="Texture2D" uid="uid://bcr40xegfgje8" path="res://Asset/BG/Halte bus/bush.png" id="10_pl7pe"]
+[ext_resource type="PackedScene" uid="uid://dnu41de6hysvu" path="res://interactions/siluet.tscn" id="10_tg0tj"]
+[ext_resource type="Texture2D" uid="uid://4fexsma18i76" path="res://Asset/BG/Halte bus/bangunan.png" id="12_s66ys"]
+[ext_resource type="Texture2D" uid="uid://cgihkynr1u0t" path="res://Asset/BG/Halte bus/pohon2.png" id="13_s66ys"]
+[ext_resource type="PackedScene" uid="uid://1s0fhbwptbjr" path="res://interactions/kertas_halte.tscn" id="14_6ijfv"]
+[ext_resource type="PackedScene" uid="uid://dew2yn06g68ut" path="res://ui/journal_ui.tscn" id="15_mfvgp"]
+[ext_resource type="PackedScene" uid="uid://bkvcf8u60lta3" path="res://world/transition.tscn" id="16_ep4vs"]
+[ext_resource type="PackedScene" uid="uid://cmx1t8go5ymgq" path="res://interactions/door_halte.tscn" id="17_tg0tj"]
+[ext_resource type="PackedScene" uid="uid://dw3vr0er03fcj" path="res://interactions/video_popup.tscn" id="18_46rtf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuoue"]
+size = Vector2(876, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugot"]
+size = Vector2(40.5, 163.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s66ys"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_s66ys"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0.00519481, 0.00573441), 0.0, 1.69287, 0, 0, Vector2(0.509091, 0.3), 0.0, 0.0, 0, 0, Vector2(0.994805, 0.0135815), -1.76233, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mfvgp"]
+curve = SubResource("Curve_s66ys")
+
+[sub_resource type="Gradient" id="Gradient_ep4vs"]
+colors = PackedColorArray(1, 1, 1, 0.0784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tg0tj"]
+gradient = SubResource("Gradient_ep4vs")
+
+[sub_resource type="Curve" id="Curve_46rtf"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_jew8r"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0769618), 0.0, 14.1615, 0, 0, Vector2(0.387013, 30), 0.0, 0.0, 0, 0, Vector2(0.994805, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_pl7pe"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_2ofe8"]
+curve_x = SubResource("Curve_46rtf")
+curve_y = SubResource("Curve_jew8r")
+curve_z = SubResource("Curve_pl7pe")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wuoue"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -113.245, 0)
+emission_shape = 3
+emission_box_extents = Vector3(450, 1, 1)
+spread = 0.0
+gravity = Vector3(0, 2000, 0)
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_2ofe8")
+color_ramp = SubResource("GradientTexture1D_tg0tj")
+alpha_curve = SubResource("CurveTexture_mfvgp")
+collision_mode = 2
+sub_emitter_mode = 3
+sub_emitter_amount_at_collision = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_s66ys"]
+polygon = PackedVector2Array(-451, 82, -317, 85, 64, 85, 452, 80, 451, 113, -456, 123)
+
+[sub_resource type="Curve" id="Curve_6ijfv"]
+_data = [Vector2(0, 0), 0.0, 3.25808, 0, 0, Vector2(0.493506, 0.771127), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.00176, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ep4vs"]
+curve = SubResource("Curve_6ijfv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tg0tj"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 500, 0)
+alpha_curve = SubResource("CurveTexture_ep4vs")
+
+[sub_resource type="Gradient" id="Gradient_s66ys"]
+offsets = PackedFloat32Array(0.00248139, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6ijfv"]
+gradient = SubResource("Gradient_s66ys")
+fill_from = Vector2(0.491453, 0)
+fill_to = Vector2(0.504274, 0.92735)
+
+[sub_resource type="Gradient" id="Gradient_6ijfv"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mfvgp"]
+gradient = SubResource("Gradient_6ijfv")
+fill = 1
+fill_from = Vector2(0.504274, 0.491453)
+fill_to = Vector2(0.871795, 0.145299)
+
+[sub_resource type="Gradient" id="Gradient_tg0tj"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46rtf"]
+gradient = SubResource("Gradient_tg0tj")
+fill = 1
+fill_from = Vector2(0.491453, 0.991453)
+fill_to = Vector2(0.760684, 0.534188)
+
+[sub_resource type="Gradient" id="Gradient_mfvgp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ep4vs"]
+gradient = SubResource("Gradient_mfvgp")
+fill_from = Vector2(0.474359, 0.017094)
+fill_to = Vector2(0.474359, 0.987179)
+
+[sub_resource type="Gradient" id="Gradient_46rtf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jew8r"]
+gradient = SubResource("Gradient_46rtf")
+fill = 2
+fill_from = Vector2(0.495726, 0.5)
+fill_to = Vector2(0, 1)
+
+[node name="HalteBus" type="Node2D"]
+script = ExtResource("1_s66ys")
+
+[node name="Transition" parent="." instance=ExtResource("16_ep4vs")]
+visible = false
+
+[node name="Zia" parent="." instance=ExtResource("1_f8vv1")]
+position = Vector2(-419, -2)
+scale = Vector2(0.995, 0.995)
+
+[node name="Camera2D" type="Camera2D" parent="Zia"]
+position = Vector2(1, -47.585)
+offset = Vector2(0, -21.215)
+zoom = Vector2(0.875, 0.875)
+limit_left = -438
+limit_top = -105
+limit_right = 438
+limit_bottom = 105
+editor_draw_limits = true
+script = ExtResource("2_6nwib")
+
+[node name="HitWindowTimer" type="Timer" parent="Zia"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 4
+position = Vector2(0, 73)
+shape = SubResource("RectangleShape2D_wuoue")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-453, 16)
+shape = SubResource("RectangleShape2D_sugot")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(436.25, 16)
+shape = SubResource("RectangleShape2D_sugot")
+
+[node name="roadbelakang" type="Sprite2D" parent="."]
+texture = ExtResource("3_s66ys")
+
+[node name="roaddepan" type="Sprite2D" parent="."]
+z_index = 3
+texture = ExtResource("4_6ijfv")
+
+[node name="lampu" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(-397.52, -24)
+texture = ExtResource("6_s66ys")
+
+[node name="halte" type="Sprite2D" parent="."]
+texture = ExtResource("5_mfvgp")
+
+[node name="bush" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -0.325)
+texture = ExtResource("10_pl7pe")
+
+[node name="siluet" parent="." instance=ExtResource("10_tg0tj")]
+position = Vector2(150.24, 10.495)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="base" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/base"]
+texture = ExtResource("6_ep4vs")
+
+[node name="awan" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/awan"]
+position = Vector2(0, 74.825)
+texture = ExtResource("7_tg0tj")
+
+[node name="building" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/building"]
+position = Vector2(245.81, 35.885)
+texture = ExtResource("12_s66ys")
+
+[node name="pohonn" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/pohonn"]
+position = Vector2(235.265, 14.735)
+texture = ExtResource("13_s66ys")
+
+[node name="rain" type="GPUParticles2D" parent="."]
+z_index = 8
+material = SubResource("CanvasItemMaterial_s66ys")
+amount = 500
+sub_emitter = NodePath("../splash")
+lifetime = 0.5
+preprocess = 0.5
+collision_base_size = 49.25
+visibility_rect = Rect2(-440.865, -110.39, 880, 219.27)
+trail_lifetime = 1.38
+trail_sections = 7
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_wuoue")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+z_index = 3
+occluder = SubResource("OccluderPolygon2D_s66ys")
+
+[node name="splash" type="GPUParticles2D" parent="."]
+z_index = 4
+amount = 200
+lifetime = 0.2
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_tg0tj")
+
+[node name="lighting" type="Area2D" parent="."]
+
+[node name="halte1" type="PointLight2D" parent="lighting"]
+position = Vector2(-262, 3)
+scale = Vector2(1.1875, 1.71875)
+energy = 1.46
+texture = SubResource("GradientTexture2D_6ijfv")
+
+[node name="halte2" type="PointLight2D" parent="lighting"]
+position = Vector2(-191, 2.5)
+scale = Vector2(1.03125, 1.70313)
+energy = 1.46
+texture = SubResource("GradientTexture2D_6ijfv")
+
+[node name="halte3" type="PointLight2D" parent="lighting"]
+position = Vector2(-125, 3)
+scale = Vector2(1.03125, 1.71875)
+energy = 1.46
+texture = SubResource("GradientTexture2D_6ijfv")
+
+[node name="halte4" type="PointLight2D" parent="lighting"]
+position = Vector2(-58, 2.5)
+scale = Vector2(1.0625, 1.70312)
+energy = 1.46
+texture = SubResource("GradientTexture2D_6ijfv")
+
+[node name="halte5" type="PointLight2D" parent="lighting"]
+position = Vector2(12, 2.5)
+scale = Vector2(1.125, 1.70313)
+energy = 1.46
+texture = SubResource("GradientTexture2D_6ijfv")
+
+[node name="PointLight2D" type="PointLight2D" parent="lighting"]
+position = Vector2(-334, -39)
+energy = 0.86
+texture = SubResource("GradientTexture2D_mfvgp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lighting"]
+position = Vector2(-373, -68.5)
+scale = Vector2(0.820312, 3.95313)
+color = Color(1, 0.787249, 0.441935, 1)
+energy = 0.86
+texture = SubResource("GradientTexture2D_46rtf")
+
+[node name="PointLight2D3" type="PointLight2D" parent="lighting"]
+position = Vector2(-422, -90.25)
+scale = Vector2(0.875, 4.63281)
+color = Color(1, 0.787249, 0.441935, 1)
+energy = 0.86
+texture = SubResource("GradientTexture2D_46rtf")
+
+[node name="PointLight2D4" type="PointLight2D" parent="lighting"]
+position = Vector2(-425, -159)
+scale = Vector2(0.875, 2.61719)
+color = Color(1, 0.787249, 0.441935, 1)
+energy = 1.63
+texture = SubResource("GradientTexture2D_46rtf")
+
+[node name="PointLight2D5" type="PointLight2D" parent="lighting"]
+position = Vector2(-373, -137)
+scale = Vector2(0.875, 2.61719)
+color = Color(1, 0.787249, 0.441935, 1)
+energy = 1.63
+texture = SubResource("GradientTexture2D_46rtf")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="lighting"]
+color = Color(0.781132, 0.472996, 0.374194, 1)
+energy = 0.77
+blend_mode = 1
+
+[node name="siluet" type="PointLight2D" parent="lighting"]
+position = Vector2(150.5, 4.5)
+scale = Vector2(0.796875, 1.35938)
+energy = 0.72
+texture = SubResource("GradientTexture2D_ep4vs")
+
+[node name="entah apa ini" type="PointLight2D" parent="lighting"]
+position = Vector2(89.125, 2.5)
+scale = Vector2(0.214844, 1.01563)
+color = Color(0.356863, 0.478431, 1, 1)
+energy = 1.42
+texture = SubResource("GradientTexture2D_jew8r")
+
+[node name="entah apa ini2" type="PointLight2D" parent="lighting"]
+position = Vector2(58.375, 3)
+scale = Vector2(0.199219, 1.03125)
+color = Color(0.356863, 0.478431, 1, 1)
+energy = 1.41
+texture = SubResource("GradientTexture2D_jew8r")
+
+[node name="entah apa ini3" type="PointLight2D" parent="lighting"]
+position = Vector2(73.5, -14.5)
+scale = Vector2(0.421875, 0.140625)
+color = Color(0.356863, 0.823529, 1, 1)
+texture = SubResource("GradientTexture2D_jew8r")
+
+[node name="KertasHalte" parent="." instance=ExtResource("14_6ijfv")]
+position = Vector2(-58, 9)
+
+[node name="JournalUI" parent="." instance=ExtResource("15_mfvgp")]
+visible = false
+
+[node name="DoorTamanFitnes" parent="." instance=ExtResource("17_tg0tj")]
+position = Vector2(358, -3)
+
+[node name="VideoPopup" parent="." instance=ExtResource("18_46rtf")]

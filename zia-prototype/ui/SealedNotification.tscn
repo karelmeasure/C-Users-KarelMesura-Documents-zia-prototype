@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjkm74xuv7yg5"]
+
+[ext_resource type="Script" uid="uid://daws5h51rjodx" path="res://ui/sealed_notification.gd" id="1_d5285"]
+[ext_resource type="FontFile" uid="uid://jgx63ymgkg6f" path="res://Asset/font/Pixelcraft - Personal Use.ttf" id="2_tmbx8"]
+
+[sub_resource type="Animation" id="Animation_anchb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 18.785)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_257ru"]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433528),
+"transitions": PackedFloat32Array(3.24901, 3.24901),
+"update": 0,
+"values": [Vector2(-31, 0), Vector2(-31, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2p7sf"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(3.4822, 3.13834),
+"update": 0,
+"values": [Vector2(-31, 7), Vector2(-31, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundPanel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8pcs8"]
+_data = {
+&"RESET": SubResource("Animation_anchb"),
+&"hide": SubResource("Animation_257ru"),
+&"show": SubResource("Animation_2p7sf")
+}
+
+[node name="SealedNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d5285")
+
+[node name="BackgroundPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 49)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 18.785
+offset_right = 200.0
+offset_bottom = 67.785
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.315, 0.315)
+
+[node name="Label" type="Label" parent="BackgroundPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 5
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_tmbx8")
+text = "Pintu Ini Tersegel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DurationTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8pcs8")
+}

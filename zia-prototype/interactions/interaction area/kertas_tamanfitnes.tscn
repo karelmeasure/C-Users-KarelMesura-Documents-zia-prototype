@@ -1,0 +1,147 @@
+[gd_scene load_steps=23 format=3 uid="uid://bce5sbmnrn1wa"]
+
+[ext_resource type="Texture2D" uid="uid://b1rqlmqvi5vvq" path="res://Asset/kertas.png" id="1_7emkn"]
+[ext_resource type="Script" uid="uid://brc6eow1cxcxm" path="res://interactions/interaction area/kertas_tamanfitnes.gd" id="2_h3hha"]
+[ext_resource type="PackedScene" uid="uid://bef7013thio5j" path="res://interactions/interaction area/interaction_area.tscn" id="3_fgwb5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgpci"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s34rr"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(17, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkp2q"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(34, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xrlt"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(51, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqxcx"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(68, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bswsn"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(85, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77thn"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(102, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55rch"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(119, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo351"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(136, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdp7v"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(153, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eygx2"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(170, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0v4c"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(187, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2t25"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(204, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4kri"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(221, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4jtn"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(238, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0p1m"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(255, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7ytd"]
+atlas = ExtResource("1_7emkn")
+region = Rect2(272, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rifb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgpci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s34rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkp2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xrlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqxcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bswsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77thn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55rch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo351")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdp7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eygx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0v4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2t25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4kri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4jtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0p1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7ytd")
+}],
+"loop": true,
+"name": &"kertas_tamanfitnes",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak6sc"]
+size = Vector2(24, 20)
+
+[node name="KertasTamanfitnes" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7rifb")
+animation = &"kertas_tamanfitnes"
+frame = 1
+frame_progress = 0.0496881
+script = ExtResource("2_h3hha")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_fgwb5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_ak6sc")

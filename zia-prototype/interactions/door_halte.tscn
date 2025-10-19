@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmx1t8go5ymgq"]
+
+[ext_resource type="Texture2D" uid="uid://d0ruvel1jtnvj" path="res://Asset/pintu/open_door.png" id="1_ms4gq"]
+[ext_resource type="Script" uid="uid://dvfyjl1yc50ol" path="res://interactions/door_halte.gd" id="1_vx7ig"]
+[ext_resource type="PackedScene" uid="uid://bef7013thio5j" path="res://interactions/interaction area/interaction_area.tscn" id="3_3ae6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vx7ig"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(0, 0, 72, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsgfr"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(216, 0, 72, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ae6a"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(0, 0, 72, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luj5v"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(72, 0, 72, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxex2"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(144, 0, 72, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng0x2"]
+atlas = ExtResource("1_ms4gq")
+region = Rect2(216, 0, 72, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsgfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vx7ig")
+}],
+"loop": true,
+"name": &"door_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsgfr")
+}],
+"loop": true,
+"name": &"door_opened",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ae6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luj5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxex2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng0x2")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_luj5v"]
+size = Vector2(44, 72)
+
+[node name="DoorTamanFitnes" type="Area2D"]
+monitoring = false
+script = ExtResource("1_vx7ig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tsgfr")
+animation = &"door_closed"
+autoplay = "door_closed"
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_3ae6a")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(1, 7)
+shape = SubResource("RectangleShape2D_luj5v")

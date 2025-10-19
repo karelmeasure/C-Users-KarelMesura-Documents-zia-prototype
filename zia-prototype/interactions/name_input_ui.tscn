@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxmisissi8wcu"]
+
+[ext_resource type="Script" uid="uid://bhd4o15ptjxqt" path="res://interactions/name_input_ui.gd" id="1_5b7j7"]
+[ext_resource type="Texture2D" uid="uid://c6egohmyf5f74" path="res://Asset/tugu/TuguUI-sheet.png" id="2_8qc3a"]
+[ext_resource type="FontFile" uid="uid://jgx63ymgkg6f" path="res://Asset/font/Pixelcraft - Personal Use.ttf" id="3_tlcuq"]
+
+[node name="NameInputUi" type="CanvasLayer"]
+layer = 51
+offset = Vector2(115.44, 63.505)
+scale = Vector2(0.285, 0.285)
+transform = Transform2D(0.285, 0, 0, 0.285, 115.44, 63.505)
+script = ExtResource("1_5b7j7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -275.0
+offset_right = 580.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_8qc3a")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = -61.193
+offset_top = -103.526
+offset_right = 384.807
+offset_bottom = 246.474
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 11
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(406, 252)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.788235, 0.756863, 0.666667, 1)
+theme_override_colors/font_shadow_color = Color(0.239216, 0.235294, 0.223529, 1)
+theme_override_constants/line_spacing = 4
+theme_override_constants/paragraph_spacing = -4
+theme_override_fonts/font = ExtResource("3_tlcuq")
+theme_override_font_sizes/font_size = 18
+text = "Darkmoon Greatsword adalah sebuah senjata legendaris yang konon bisa menghancurkan segel apapun dengan tebasannya. Namun hanya orang spesial saja lah yang mampu memiliki dan menampung kekuatan dari senjata legendaris ini
+
+Apakah kamu adalah orang spesial Tulis namamu disini "
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+alignment = 1
+
+[node name="enter" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tlcuq")
+text = "ENTER"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_tlcuq")
+text = "quit"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = -43.6491
+offset_top = 145.596
+offset_right = 365.351
+offset_bottom = 206.596
+
+[node name="LineEdit" type="LineEdit" parent="CenterContainer"]
+custom_minimum_size = Vector2(218.84, 35.905)
+layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_tlcuq")
+alignment = 1
+max_length = 30
+emoji_menu_enabled = false
+
+[node name="FocusTimer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/quit" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dcmv2xldnkuey"]
+
+[ext_resource type="Texture2D" uid="uid://dobqgvw21pt5" path="res://Asset/590d6ce38673e40.png" id="1_tahst"]
+[ext_resource type="PackedScene" uid="uid://buirngk6cfgvn" path="res://interactions/interactable.tscn" id="2_2lo4n"]
+
+[sub_resource type="GDScript" id="GDScript_pwdtn"]
+script/source = "extends StaticBody2D
+
+@onready var interactable: Area2D = $Sprite2D/Interactable
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+func _ready() -> void:
+	interactable.interact = _on_interact
+	
+	
+func _on_interact():
+	if sprite_2d.frame == 0:
+		sprite_2d.frame = 1
+		interactable.is_interactable = false
+		print(\"aku adalah jurnal\")
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4egr5"]
+radius = 503.796
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hw55"]
+radius = 717.477
+
+[node name="kertas" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = SubResource("GDScript_pwdtn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_4egr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+scale = Vector2(0.665556, 0.665556)
+texture = ExtResource("1_tahst")
+
+[node name="Interactable" parent="Sprite2D" instance=ExtResource("2_2lo4n")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable"]
+shape = SubResource("CircleShape2D_3hw55")

@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ooplc018dxk"]
+
+[ext_resource type="FontFile" uid="uid://b414680e18cmb" path="res://Asset/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_7wuj4"]
+
+[sub_resource type="GDScript" id="GDScript_7wuj4"]
+script/source = "extends Node2D
+
+@onready var interact_label: Label = $InteractLabel
+var current_interactions := []
+var can_interact := true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"Interact\") and can_interact:
+		if current_interactions:
+			can_interact= false
+			interact_label.hide()
+			
+			await current_interactions[0].interact.call()
+			
+			can_interact  = true
+
+
+
+func _process(_delta: float) -> void:
+	if current_interactions and can_interact:
+		current_interactions.sort_custom(_sort_by_nearest)
+		if current_interactions[0].is_interactable:
+			interact_label.text = current_interactions[0].interact_name
+			interact_label.show()
+	else:
+		interact_label.hide()
+
+
+
+func _sort_by_nearest(area1, area2):
+	var area1_dist = global_position.distance_to(area1.global_position)
+	var area2_dist = global_position.distance_to(area2.global_position)
+	return area1_dist < area2_dist
+	
+
+func _on_interact_range_area_entered(area: Area2D) -> void:
+	current_interactions.push_back(area)
+
+func _on_interact_range_area_exited(area: Area2D) -> void:
+	current_interactions.erase(area)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rbd2p"]
+radius = 22.0907
+
+[sub_resource type="LabelSettings" id="LabelSettings_vlsj6"]
+font = ExtResource("1_7wuj4")
+font_size = 7
+
+[node name="InteractingComponent" type="Node2D"]
+script = SubResource("GDScript_7wuj4")
+
+[node name="interact range" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interact range"]
+shape = SubResource("CircleShape2D_rbd2p")
+
+[node name="InteractLabel" type="Label" parent="."]
+z_index = 20
+offset_left = -214.0
+offset_top = -56.0
+offset_right = 214.0
+offset_bottom = -24.0
+text = "[E] TO INTERACT"
+label_settings = SubResource("LabelSettings_vlsj6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="interact range" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="interact range" to="." method="_on_interact_range_area_exited"]

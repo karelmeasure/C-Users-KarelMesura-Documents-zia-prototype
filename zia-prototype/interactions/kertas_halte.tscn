@@ -1,0 +1,147 @@
+[gd_scene load_steps=23 format=3 uid="uid://1s0fhbwptbjr"]
+
+[ext_resource type="Texture2D" uid="uid://b1rqlmqvi5vvq" path="res://Asset/kertas.png" id="1_hm1tw"]
+[ext_resource type="Script" uid="uid://c7cgt525wk5w2" path="res://interactions/kertas_halte.gd" id="2_6per8"]
+[ext_resource type="PackedScene" uid="uid://bef7013thio5j" path="res://interactions/interaction area/interaction_area.tscn" id="3_86m8c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmr8q"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noq4g"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(17, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l4kv"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(34, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk2y1"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(51, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea118"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(68, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr4vk"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(85, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxo3b"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(102, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1imp"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(119, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8t30"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(136, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l4gu"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(153, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi0kq"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(170, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffm5r"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(187, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy5vq"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(204, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grhp1"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(221, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3aw0"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(238, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xc1d"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(255, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhnob"]
+atlas = ExtResource("1_hm1tw")
+region = Rect2(272, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qslcv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmr8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noq4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l4kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk2y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea118")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr4vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxo3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1imp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8t30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l4gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi0kq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffm5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy5vq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grhp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3aw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xc1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhnob")
+}],
+"loop": true,
+"name": &"kertas_halte",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmn6f"]
+size = Vector2(24, 21)
+
+[node name="KertasHalte" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_qslcv")
+animation = &"kertas_halte"
+frame_progress = 0.888519
+script = ExtResource("2_6per8")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_86m8c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_kmn6f")

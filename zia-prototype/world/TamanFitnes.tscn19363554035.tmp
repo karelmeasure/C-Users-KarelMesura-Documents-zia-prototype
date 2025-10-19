@@ -1,0 +1,211 @@
+[gd_scene load_steps=31 format=3 uid="uid://d3rpllh0h626h"]
+
+[ext_resource type="Script" uid="uid://b6yek2bp8gt3r" path="res://world/taman_fitnes.gd" id="1_88gbw"]
+[ext_resource type="PackedScene" uid="uid://b2hp5v015acgg" path="res://Player/zia.tscn" id="1_pwwql"]
+[ext_resource type="Script" uid="uid://bevqmq577j4ca" path="res://camera_2d.gd" id="2_k52cq"]
+[ext_resource type="Texture2D" uid="uid://dyq75q72vpdjd" path="res://Asset/BG/TAMAN FITNES/BG BASE1.png" id="3_g2rvj"]
+[ext_resource type="Texture2D" uid="uid://d2oqdlh8n7ydg" path="res://Asset/BG/TAMAN FITNES/rumput bawah.png" id="4_j3a4v"]
+[ext_resource type="Texture2D" uid="uid://c6g7hfdk30h2s" path="res://Asset/BG/TAMAN FITNES/BUSH.png" id="5_j3a4v"]
+[ext_resource type="Texture2D" uid="uid://bhfkhqur3yv4u" path="res://Asset/BG/TAMAN FITNES/POHON.png" id="6_j8jgr"]
+[ext_resource type="Texture2D" uid="uid://dgkibfc6qf7i8" path="res://Asset/BG/TAMAN FITNES/JALAN.png" id="7_88gbw"]
+[ext_resource type="Texture2D" uid="uid://c8vlvj6xr77mq" path="res://Asset/BG/TAMAN FITNES/rumput atas.png" id="9_j8jgr"]
+[ext_resource type="Texture2D" uid="uid://chne78n1du85t" path="res://Asset/BG/TAMAN FITNES/TAMAN FITNES.png" id="9_qj5pr"]
+[ext_resource type="Texture2D" uid="uid://cxrg4b6y0wl8b" path="res://Asset/BG/TAMAN FITNES/awans.png" id="10_88gbw"]
+[ext_resource type="Texture2D" uid="uid://b7pofxnq428db" path="res://Asset/BG/TAMAN FITNES/ALAT FITNESS.png" id="10_c2qsb"]
+[ext_resource type="Texture2D" uid="uid://dlc51w6hjer6m" path="res://Asset/BG/TAMAN FITNES/GLITCH.png" id="11_18xrh"]
+[ext_resource type="PackedScene" uid="uid://6em25p2ieng2" path="res://interactions/Tugu.tscn" id="13_88gbw"]
+[ext_resource type="PackedScene" uid="uid://cx045xideiwhq" path="res://interactions/SealedDoor.tscn" id="14_ewfgi"]
+[ext_resource type="PackedScene" uid="uid://bce5sbmnrn1wa" path="res://interactions/interaction area/kertas_tamanfitnes.tscn" id="15_j3a4v"]
+[ext_resource type="PackedScene" uid="uid://dew2yn06g68ut" path="res://ui/journal_ui.tscn" id="16_j8jgr"]
+[ext_resource type="Texture2D" uid="uid://caw7gloilve1f" path="res://Asset/particle/daun.png" id="18_ewfgi"]
+[ext_resource type="PackedScene" uid="uid://du6sc2ous708t" path="res://interactions/AttackHint.tscn" id="19_qj5pr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8jgr"]
+atlas = ExtResource("11_18xrh")
+region = Rect2(0, 0, 1143, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88gbw"]
+atlas = ExtResource("11_18xrh")
+region = Rect2(1143, 0, 1143, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewfgi"]
+atlas = ExtResource("11_18xrh")
+region = Rect2(2286, 0, 1143, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj5pr"]
+atlas = ExtResource("11_18xrh")
+region = Rect2(3429, 0, 1143, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2qsb"]
+atlas = ExtResource("11_18xrh")
+region = Rect2(4572, 0, 1143, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18xrh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8jgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88gbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewfgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj5pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2qsb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwwql"]
+size = Vector2(1269, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8jgr"]
+size = Vector2(31, 163.5)
+
+[sub_resource type="Gradient" id="Gradient_qj5pr"]
+offsets = PackedFloat32Array(0, 0.225627, 0.763231, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c2qsb"]
+gradient = SubResource("Gradient_qj5pr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18xrh"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 200, 1)
+spread = 20.0
+flatness = 0.106
+initial_velocity_min = 20.0
+initial_velocity_max = 80.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.1
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_c2qsb")
+
+[node name="TamanFitnes" type="Node2D"]
+script = ExtResource("1_88gbw")
+
+[node name="Zia" parent="." instance=ExtResource("1_pwwql")]
+position = Vector2(-512.49, -5.31)
+scale = Vector2(0.995, 0.995)
+
+[node name="Camera2D" type="Camera2D" parent="Zia"]
+position = Vector2(1, -47.585)
+offset = Vector2(0, -17.12)
+zoom = Vector2(1.04, 1.04)
+limit_left = -568
+limit_top = -90
+limit_right = 568
+limit_bottom = 85
+editor_draw_limits = true
+script = ExtResource("2_k52cq")
+
+[node name="HitWindowTimer" type="Timer" parent="Zia"]
+
+[node name="jalan" type="Sprite2D" parent="."]
+texture = ExtResource("7_88gbw")
+
+[node name="rumput" type="Sprite2D" parent="."]
+texture = ExtResource("4_j3a4v")
+
+[node name="taman_fitnes" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_qj5pr")
+
+[node name="alat_fitnes" type="Sprite2D" parent="."]
+texture = ExtResource("10_c2qsb")
+
+[node name="glitchs" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_18xrh")
+frame_progress = 0.945557
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-44.5, 71)
+shape = SubResource("RectangleShape2D_pwwql")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-585.5, -16.25)
+shape = SubResource("RectangleShape2D_j8jgr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(551, -26.5)
+shape = SubResource("RectangleShape2D_j8jgr")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="base" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/base"]
+texture = ExtResource("3_g2rvj")
+
+[node name="awan" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/awan"]
+position = Vector2(0, 74.825)
+texture = ExtResource("10_88gbw")
+
+[node name="bush" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/bush"]
+position = Vector2(0, 53)
+texture = ExtResource("5_j3a4v")
+
+[node name="pohon" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/pohon"]
+position = Vector2(216.385, 35)
+texture = ExtResource("6_j8jgr")
+
+[node name="rumput" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/rumput"]
+position = Vector2(0, 27)
+texture = ExtResource("9_j8jgr")
+
+[node name="taman fitnes" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 0.9)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/taman fitnes"]
+position = Vector2(0, 9)
+texture = ExtResource("9_qj5pr")
+
+[node name="Tugu" parent="." instance=ExtResource("13_88gbw")]
+position = Vector2(417, -0.46)
+
+[node name="SealedDoor" parent="." instance=ExtResource("14_ewfgi")]
+position = Vector2(354.665, -8)
+
+[node name="KertasTamanfitnes" parent="." instance=ExtResource("15_j3a4v")]
+position = Vector2(-351, 12.51)
+frame = 4
+frame_progress = 0.485528
+
+[node name="JournalUI" parent="." instance=ExtResource("16_j8jgr")]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 70
+texture = ExtResource("18_ewfgi")
+lifetime = 1.27
+randomness = 0.09
+visibility_rect = Rect2(-573.71, -200, 1145, 262.4)
+process_material = SubResource("ParticleProcessMaterial_18xrh")
+
+[node name="AttackHint" parent="." instance=ExtResource("19_qj5pr")]

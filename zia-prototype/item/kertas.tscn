@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://d331f5fel3maw"]
+
+[ext_resource type="Texture2D" uid="uid://dobqgvw21pt5" path="res://Asset/590d6ce38673e40.png" id="1_pwysk"]
+[ext_resource type="Script" uid="uid://bjonibm1xcr35" path="res://item/kertas.gd" id="2_7uwlw"]
+[ext_resource type="PackedScene" uid="uid://bef7013thio5j" path="res://interactions/interaction area/interaction_area.tscn" id="3_sbtqi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7rik"]
+radius = 1576.72
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3i2lj"]
+radius = 1334.93
+
+[node name="kertas" type="Sprite2D"]
+z_index = 3
+texture = ExtResource("1_pwysk")
+script = ExtResource("2_7uwlw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_a7rik")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_sbtqi")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3i2lj")
