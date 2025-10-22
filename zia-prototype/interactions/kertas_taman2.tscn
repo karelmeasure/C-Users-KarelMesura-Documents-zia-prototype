@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://c4rrlnxjy72r4"]
+
+[ext_resource type="Texture2D" uid="uid://b1rqlmqvi5vvq" path="res://Asset/kertas.png" id="1_5a8rb"]
+[ext_resource type="Script" uid="uid://c7pugfowciivw" path="res://interactions/kertas_taman_2.gd" id="2_infum"]
+[ext_resource type="PackedScene" uid="uid://bef7013thio5j" path="res://interactions/interaction area/interaction_area.tscn" id="3_infum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h32w"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(0, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx1ev"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(17, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s30f"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(34, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tc6o"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(51, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2bhe"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(68, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ck3x"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(85, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdw8o"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(102, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x850x"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(119, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quakv"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(136, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b07uf"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(153, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx8hg"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(170, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05fxx"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(187, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceaw5"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(204, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vv42"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(221, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s58yd"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(238, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8cln"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(255, 0, 17, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05vgk"]
+atlas = ExtResource("1_5a8rb")
+region = Rect2(272, 0, 17, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ach4s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h32w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx1ev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s30f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tc6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2bhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ck3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdw8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x850x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quakv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b07uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx8hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05fxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceaw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vv42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s58yd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8cln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05vgk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3h32w"]
+
+[node name="KertasTaman2" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ach4s")
+frame_progress = 0.693427
+script = ExtResource("2_infum")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_infum")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("RectangleShape2D_3h32w")

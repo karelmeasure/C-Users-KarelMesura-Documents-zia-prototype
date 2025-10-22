@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d3rpllh0h626h"]
+[gd_scene load_steps=36 format=3 uid="uid://d3rpllh0h626h"]
 
 [ext_resource type="Script" uid="uid://b6yek2bp8gt3r" path="res://world/taman_fitnes.gd" id="1_88gbw"]
 [ext_resource type="PackedScene" uid="uid://b2hp5v015acgg" path="res://Player/zia.tscn" id="1_pwwql"]
@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://jgx63ymgkg6f" path="res://Asset/font/Pixelcraft - Personal Use.ttf" id="19_c2qsb"]
 [ext_resource type="Script" uid="uid://cue22h7jd76qq" path="res://world/AttackHint.gd" id="20_18xrh"]
 [ext_resource type="PackedScene" uid="uid://bkvcf8u60lta3" path="res://world/transition.tscn" id="20_c2qsb"]
+[ext_resource type="PackedScene" uid="uid://c4rrlnxjy72r4" path="res://interactions/kertas_taman2.tscn" id="23_0jltt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_18xrh"]
 atlas = ExtResource("8_c2qsb")
@@ -246,3 +247,6 @@ script = ExtResource("20_18xrh")
 
 [node name="Transition" parent="." instance=ExtResource("20_c2qsb")]
 visible = false
+
+[node name="KertasTaman2" parent="." instance=ExtResource("23_0jltt")]
+position = Vector2(-221, 12.49)

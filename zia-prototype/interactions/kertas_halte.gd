@@ -12,4 +12,4 @@ func _ready():
 
 func _on_interact():
 	if journal_ui:
-		journal_ui.show_journal("Kalau aku disuruh memilih satu momen favorit bersama Jia sejauh ini, aku akan memilih momen kehujanan di halte bus.\n\nKetika kami menuju braga, tiba-tiba hujan deras sehingga aku menyuruhnya untuk turun duluan buat meneduh, sementara aku parkir motor.\n\nLalu ketika aku kembali, ternyata ia datang menghampiriku sembari membawa payung, saat itu di tengah hujan, kami berdua saling menatap satu sama lain.\n\nSepertinya disini lah momen aku jatuh hati.")
+		journal_ui.show_journal("Kalau aku disuruh memilih satu momen favorit bersama Jia sejauh ini, aku akan memilih momen kehujanan di halte bus.\n\nKetika kami sedang menuju braga, tiba-tiba turun hujan yang membuat kami harus menepi, aku menyuruhnya untuk meneduh duluan sementara aku parkir motor.\n\nLalu ketika aku kembali, ternyata ia datang menghampiriku sembari membawa payung, saat itu di tengah hujan, kami berdua saling menatap satu sama lain.\n\nSepertinya disini lah momen aku jatuh hati.")
